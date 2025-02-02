@@ -249,6 +249,18 @@ const Saldo = {
             console.error('Error en eliminarPagoSpotify:', error);
             throw error;
         }
+    },
+
+    eliminarTodoHistorial: async () => {
+        try {
+            const [result] = await db.query(
+                "DELETE FROM historial_pagos"
+            );
+            return result.affectedRows > 0;
+        } catch (error) {
+            console.error('Error en eliminarTodoHistorial:', error);
+            throw error;
+        }
     }
 };
 
